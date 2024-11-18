@@ -1,22 +1,24 @@
-// RainMatrix Effect
-const canvas = document.getElementById("rainMatrix");
-const ctx = canvas.getContext("2d");
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+// Script untuk efek rain matrix
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const matrixChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+=-';
 const fontSize = 16;
 const columns = canvas.width / fontSize;
-let drops = Array(columns).fill(1);
-const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const drops = new Array(Math.floor(columns)).fill(1);
 
-function drawRainMatrix() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+function drawMatrix() {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#00ff41";
-  ctx.font = `${fontSize}px monospace`;
+
+  ctx.fillStyle = '#00ff41';
+  ctx.font = `${fontSize}px Courier New`;
 
   drops.forEach((y, x) => {
-    const text = characters[Math.floor(Math.random() * characters.length)];
+    const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
     ctx.fillText(text, x * fontSize, y * fontSize);
 
     if (y * fontSize > canvas.height && Math.random() > 0.975) {
@@ -24,28 +26,34 @@ function drawRainMatrix() {
     }
     drops[x]++;
   });
-
-  requestAnimationFrame(drawRainMatrix);
 }
-drawRainMatrix();
 
-// Update Time and Date
+setInterval(drawMatrix, 50);
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+// Script untuk jam digital dan tanggal
 function updateTime() {
+  const jam = document.getElementById('jam');
   const now = new Date();
-  document.getElementById("jam").textContent = now.toLocaleTimeString("id-ID");
-  document.getElementById("tanggal").textContent = now.toLocaleDateString("id-ID");
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  const date = now.toLocaleDateString();
+
+  jam.innerHTML = `${hours}:${minutes}:${seconds} | ${date}`;
 }
+
 setInterval(updateTime, 1000);
-updateTime();
+updateTime(); // Set initial time
 
-// Toggle Start Menu
-function toggleStartMenu() {
-  const startMenu = document.querySelector(".start-menu");
-  startMenu.style.display = startMenu.style.display === "block" ? "none" : "block";
-}
+// Script untuk notifikasi
+const notifButton = document.getElementById('notifikasi');
+const notifMessage = document.getElementById('notif-message');
 
-// Toggle Notification
-function toggleNotification() {
-  const notifPopup = document.getElementById("notifPopup");
-  notifPopup.style.display = notifPopup.style.display === "block" ? "none" : "block";
-}
+notifButton.addEventListener('click', () => {
+  notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
+});
