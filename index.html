@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matrix Web - DarkTron</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr.exe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Canvas untuk efek rain matrix -->
-  <canvas id="matrix"></canvas>
-
-  <!-- Taskbar seperti Windows 7 -->
-  <div class="taskbar">
-    <div class="start" id="startMenu">
-      <img src=https://logodix.com/logo/526951.png" alt="Windows Logo" class="logo" id="logo">
-      <div id="startMenuDropdown" class="start-menu">
-        <ul>
-          <li id="home">Home</li>
-          <li id="about">About</li>
-          <li id="contact">Contact</li>
-          <li id="shutdown">Shut Down</li>
-        </ul>
-      </div>
+    <div class="rain-matrix"></div>
+    <div class="taskbar">
+        <div class="start-menu">
+            <div class="user-profile">
+                <img src="user.jpg" alt="User Profile">
+                <span>Username</span>
+            </div>
+            <div class="menu-content">
+                <p>Start Menu Content</p>
+            </div>
+        </div>
+        <div class="taskbar-left">
+            <span class="wifi-status">WiFi</span>
+            <span class="battery-status">Battery</span>
+            <span class="speaker-status">Speaker</span>
+        </div>
+        <div class="taskbar-right">
+            <div class="time-date" onclick="toggleClockPopup()">
+                <span class="time">10:45</span>
+                <span class="date">19/11/2024</span>
+            </div>
+            <div class="popup" id="clock-popup">
+                <div class="analog-clock"></div>
+                <div class="calendar">Calendar Here</div>
+            </div>
+            <button onclick="showNotification()">Notification</button>
+        </div>
     </div>
-    <div class="taskbar-content">
-      <div class="notifikasi" id="notifikasi">
-        <span>📰</span>
-        <div id="notif-message" class="notif-message" style="display:none;">Ada postingan baru!</div>
-      </div>
-      <div class="jam" id="jam"></div>
+    <div class="main-content">
+        <h1>WELCOME Windows XZ</h1>
     </div>
-  </div>
-
-  <div class="content">
-    <h1>Welcome to the Matrix</h1>
-    <p>Explore the DarkTron vibes with glowing green code.</p>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
+
