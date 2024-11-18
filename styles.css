@@ -114,11 +114,32 @@ p {
 .notif-message {
   position: absolute;
   bottom: 30px;
-  left: -100px;
+  left: 0;
   background: #00ff41;
   color: #000;
-  padding: 5px 10px;
+  padding: 10px;
   border-radius: 5px;
   display: none;
   font-size: 0.9em;
+}
+
+#clock-container {
+  position: fixed;
+  top: 20%;
+  left: 20%;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #00ff41;
+  z-index: 100;
+  display: none;
+}
+
+#clock {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+#calendar {
+  font-size: 1.5em;
 }
