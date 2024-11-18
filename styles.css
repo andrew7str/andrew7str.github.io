@@ -8,23 +8,11 @@ body, html {
   font-family: 'Courier New', Courier, monospace;
 }
 
-/* Styling untuk Canvas RainMatrix */
-canvas#rainMatrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* Memastikan berada di bawah semua elemen */
-  background-color: #000; /* Latar belakang hitam agar efek rain terlihat */
-}
-
-
 canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0; /* Memastikan RainMatrix berada di layer paling bawah */
+  z-index: 0; /* Canvas berada di bawah elemen lain */
 }
 
 /* Styling untuk Content */
@@ -56,9 +44,39 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  z-index: 10;  /* Taskbar di atas RainMatrix */
+  z-index: 10; /* Taskbar di atas RainMatrix */
 }
 
+.taskbar-content {
+  display: flex;
+  align-items: center;
+}
+
+.jam, .tanggal {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.notifikasi {
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.notif-message {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  background: #00ff41;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  font-size: 0.9em;
+}
+
+/* Styling Start Menu */
 .start {
   display: flex;
   align-items: center;
@@ -76,11 +94,11 @@ p {
   position: absolute;
   bottom: 30px;
   left: 0;
-  background-color: rgba(51, 51, 51, 0.9); /* Transparansi 90% */
+  background-color: #333;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px #00ff41;
-  z-index: 20;  /* Start menu di atas taskbar */
+  z-index: 20;
   width: 200px; /* Lebar Start Menu mirip Windows 7 */
 }
 
@@ -101,60 +119,21 @@ p {
   background-color: #00ff41;
 }
 
-.taskbar-content {
-  display: flex;
-  align-items: center;
-}
-
-.jam {
-  font-size: 1.5em;
-}
-
-.tanggal {
-  font-size: 1.2em;
-  margin-top: 5px;
-}
-
-.notifikasi {
-  position: relative;
-  cursor: pointer;
-  color: #fff;
-  margin-right: 20px;
-}
-
-.notifikasi:hover .notif-message {
-  display: block;
-}
-
-.notif-message {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  background: #00ff41;
-  color: #000;
-  padding: 10px;
-  border-radius: 5px;
-  display: none;
-  font-size: 0.9em;
-}
-
 /* Pop-up untuk Jam Analog dan Kalender */
 #clock-container {
   position: fixed;
-  bottom: 60px;  /* Pindahkan ke atas sedikit agar tidak menutupi taskbar */
+  top: 10px;
   right: 10px;
   background-color: rgba(0, 0, 0, 0.9); /* Transparansi 90% */
-  padding: 15px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #00ff41;
-  z-index: 100;  /* Pop-up jam di atas taskbar */
-  width: 250px;  /* Ukuran lebih kecil dari sebelumnya */
-  display: none;
+  z-index: 100;
 }
 
 #analogClock {
-  width: 180px;  /* Ukuran jam analog yang lebih besar */
-  height: 180px;
+  width: 300px;
+  height: 300px;
   position: relative;
   background-color: #222;
   border-radius: 50%;
@@ -165,33 +144,8 @@ p {
 }
 
 #calendar {
-  margin-top: 10px;
+  margin-top: 20px;
   color: #fff;
   font-size: 1.2em;
   text-align: center;
-  font-family: 'Arial', sans-serif;
-  padding: 10px;
-  background-color: #444;
-  border-radius: 5px;
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* Styling Taskbar */
-.taskbar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(51, 51, 51, 0.8); /* Transparansi 80% */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  z-index: 10; /* Taskbar di atas RainMatrix */
-}
-
-/* Animasi pop-up Start Menu */
-.start-menu-show {
-  display: block !important;
 }
