@@ -3,52 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows 7 Simulation</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Matrix Web - DarkTron</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- RainMatrix -->
-  <canvas id="rainMatrix"></canvas>
+  <!-- Canvas untuk efek rain matrix -->
+  <canvas id="matrix"></canvas>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h1>Selamat Datang!</h1>
-    <p>Simulasi antarmuka Windows dengan tema Matrix.</p>
-  </div>
-
-  <!-- Taskbar -->
+  <!-- Taskbar seperti Windows 7 -->
   <div class="taskbar">
-    <!-- Start Menu -->
     <div class="start">
-      <img src="windows-logo.png" alt="Windows Logo" class="logo" onclick="toggleStartMenu()">
-      <div class="start-menu">
-        <ul>
-          <li>Aplikasi 1</li>
-          <li>Aplikasi 2</li>
-          <li>Aplikasi 3</li>
-        </ul>
-      </div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Windows_logo_2021.svg" alt="Windows Logo" class="logo">
     </div>
-
-    <!-- Time and Date -->
     <div class="taskbar-content">
-      <div class="jam-tanggal">
-        <div id="jam"></div>
-        <div id="tanggal"></div>
+      <div class="notifikasi" id="notifikasi">
+        <span>📰</span>
+        <div id="notif-message" class="notif-message" style="display:none;">Ada postingan baru!</div>
       </div>
-    </div>
-
-    <!-- Notifications -->
-    <div class="notifikasi" onclick="toggleNotification()">
-      <span>🔔 Notifikasi</span>
-      <div id="notifPopup" class="notif-message">Judul Postingan Anda</div>
+      <div class="jam" id="jam"></div>
     </div>
   </div>
 
-  <!-- Popup: Analog Clock & Calendar -->
-  <div id="popupClock" class="popup-container">
-    <div id="analogClock" class="analog-clock"></div>
-    <div id="calendar" class="calendar"></div>
+  <div class="content">
+    <h1>Welcome to the Matrix</h1>
+    <p>Explore the DarkTron vibes with glowing green code.</p>
   </div>
 
   <script src="script.js"></script>
