@@ -1,4 +1,4 @@
-/* Styling umum untuk Body dan Canvas */
+/* Styling untuk Body dan Canvas */
 body, html {
   margin: 0;
   padding: 0;
@@ -32,31 +32,34 @@ h1, p {
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 50px;
   background: rgba(51, 51, 51, 0.8);
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
+  align-items: center;
+  padding: 5px 15px;
   z-index: 10;
 }
 
 .start {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  width: 20px;
+  width: 30px;
   cursor: pointer;
 }
 
 .start-menu {
   display: none;
   position: absolute;
-  bottom: 40px;
-  background: rgba(51, 51, 51, 0.9);
+  bottom: 55px;
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px #00ff41;
-  padding: 10px;
-  z-index: 20;
 }
 
 .start-menu ul {
@@ -66,7 +69,7 @@ h1, p {
 }
 
 .start-menu li {
-  padding: 10px;
+  padding: 8px;
   color: white;
   cursor: pointer;
 }
@@ -75,53 +78,55 @@ h1, p {
   background: #00ff41;
 }
 
+/* Jam dan Tanggal */
 .taskbar-content {
   text-align: center;
+  color: white;
 }
 
 .jam, .tanggal {
-  font-size: 1.5em;
-  color: #fff;
+  font-size: 1.2em;
 }
 
 .notifikasi {
+  position: relative;
   cursor: pointer;
-  color: #fff;
 }
 
 .notif-message {
   display: none;
   position: absolute;
-  bottom: 40px;
-  right: 10px;
+  bottom: 55px;
+  right: 0;
   background: rgba(0, 255, 65, 0.9);
-  color: #000;
   padding: 10px;
   border-radius: 5px;
+  color: black;
 }
 
-/* Popup Jam dan Kalender */
-#clock-container {
+/* Popup Jam Analog dan Kalender */
+.popup-container {
   position: fixed;
-  bottom: 70px;
+  bottom: 60px;
   right: 10px;
   background: rgba(0, 0, 0, 0.9);
-  border-radius: 10px;
   padding: 20px;
+  border-radius: 10px;
   box-shadow: 0 0 10px #00ff41;
   display: none;
+  z-index: 20;
 }
 
-#analogClock {
-  width: 150px;
-  height: 150px;
-  background: #222;
+.analog-clock {
+  width: 120px;
+  height: 120px;
+  border: 5px solid #00ff41;
   border-radius: 50%;
   margin: auto;
 }
 
-#calendar {
-  margin-top: 20px;
+.calendar {
+  margin-top: 15px;
   text-align: center;
   color: white;
 }
