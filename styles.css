@@ -94,15 +94,6 @@ p {
   align-items: center;
 }
 
-.jam-tanggal {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  color: #00ff41;
-  font-size: 1.2em;
-  margin-left: 20px;
-}
-
 .jam {
   font-size: 1.5em;
 }
