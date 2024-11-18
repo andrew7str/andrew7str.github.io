@@ -58,7 +58,7 @@ notifButton.addEventListener('click', () => {
   notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
 });
 
-// Script untuk Start Menu (logo Windows)
+// Script untuk Start Menu (mirip Windows 7)
 const startLogo = document.getElementById('logo');
 const startMenu = document.getElementById('startMenuDropdown');
 
