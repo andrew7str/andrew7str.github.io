@@ -8,6 +8,18 @@ body, html {
   font-family: 'Courier New', Courier, monospace;
 }
 
+/* Styling untuk Canvas RainMatrix */
+canvas#rainMatrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Memastikan berada di bawah semua elemen */
+  background-color: #000; /* Latar belakang hitam agar efek rain terlihat */
+}
+
+
 canvas {
   position: absolute;
   top: 0;
