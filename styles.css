@@ -129,18 +129,20 @@ p {
 /* Pop-up untuk Jam Analog dan Kalender */
 #clock-container {
   position: fixed;
-  top: 10px;
+  bottom: 60px;  /* Pindahkan ke atas sedikit agar tidak menutupi taskbar */
   right: 10px;
   background-color: rgba(0, 0, 0, 0.9); /* Transparansi 90% */
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 10px #00ff41;
   z-index: 100;
+  width: 250px;  /* Ukuran lebih kecil dari sebelumnya */
+  display: none;
 }
 
 #analogClock {
-  width: 300px;
-  height: 300px;
+  width: 150px;  /* Mengurangi ukuran jam analog */
+  height: 150px;
   position: relative;
   background-color: #222;
   border-radius: 50%;
@@ -151,8 +153,19 @@ p {
 }
 
 #calendar {
-  margin-top: 20px;
+  margin-top: 10px;
   color: #fff;
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: center;
+  font-family: 'Arial', sans-serif;
+  padding: 5px;
+  background-color: #444;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Animasi pop-up Start Menu */
+.start-menu-show {
+  display: block !important;
 }
