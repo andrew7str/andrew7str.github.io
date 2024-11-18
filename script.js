@@ -53,15 +53,58 @@ updateTime(); // Set initial time
 // Script untuk notifikasi
 const notifButton = document.getElementById('notifikasi');
 const notifMessage = document.getElementById('notif-message');
+const postList = document.getElementById('post-list');
+
+// Daftar Postingan
+const posts = [
+  { title: "Postingan 1: Matrix Launch" },
+  { title: "Postingan 2: DarkTron News" },
+  { title: "Postingan 3: New Code Released" }
+];
+
+// Menampilkan postingan pada notifikasi
+function showPosts() {
+  postList.innerHTML = '';
+  posts.forEach(post => {
+    const li = document.createElement('li');
+    li.textContent = post.title;
+    postList.appendChild(li);
+  });
+}
 
 notifButton.addEventListener('click', () => {
   notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
+  showPosts(); // Menampilkan judul postingan saat klik notifikasi
 });
 
-// Script untuk Start Menu (mirip Windows 7)
-const startLogo = document.getElementById('logo');
-const startMenu = document.getElementById('startMenuDropdown');
+// Script untuk menampilkan jam analog dan kalender saat klik jam
+const clockContainer = document.getElementById('clock-container');
+const jamElement = document.getElementById('jam');
 
-startLogo.addEventListener('click', () => {
-  startMenu.style.display = startMenu.style.display === 'none' || startMenu.style.display === '' ? 'block' : 'none';
+jamElement.addEventListener('click', () => {
+  clockContainer.style.display = clockContainer.style.display === 'none' ? 'block' : 'none';
+  displayClock(); // Menampilkan jam analog
+  displayCalendar(); // Menampilkan kalender
 });
+
+// Menampilkan Jam Analog
+function displayClock() {
+  const clock = document.getElementById('clock');
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  clock.innerHTML = `Analog Time: ${hours}:${minutes}:${seconds}`;
+}
+
+// Menampilkan Kalender
+function displayCalendar() {
+  const calendar = document.getElementById('calendar');
+  const now = new Date();
+  const month = now.getMonth() + 1; // Bulan (1 - 12)
+  const day = now.getDate();
+  const year = now.getFullYear();
+
+  calendar.innerHTML = `Calendar: ${month}/${day}/${year}`;
+}
