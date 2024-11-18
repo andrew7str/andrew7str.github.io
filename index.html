@@ -31,7 +31,10 @@
           <ul id="post-list"></ul>
         </div>
       </div>
-      <div class="jam" id="jam" style="cursor: pointer;">00:00:00</div>
+      <div class="jam-tanggal">
+        <div id="jam">00:00:00</div>
+        <div id="tanggal">01/01/2024</div>
+      </div>
     </div>
   </div>
 
@@ -40,8 +43,8 @@
     <p>Explore the DarkTron vibes with glowing green code.</p>
   </div>
 
-  <div id="clock-container" style="display: none;">
-    <!-- Pop-up untuk Jam Analog dan Kalender -->
+  <!-- Pop-up untuk Jam Analog dan Kalender di pojok kanan atas -->
+  <div id="clock-container" style="display: none; position: fixed; top: 10px; right: 10px; background-color: rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #00ff41;">
     <div id="analogClock" class="clock-popup">
       <canvas id="analogCanvas"></canvas>
       <div id="calendar"></div>
