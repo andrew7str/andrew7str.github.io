@@ -67,35 +67,74 @@ function showPosts() {
   postList.innerHTML = '';
   posts.forEach(post => {
     const li = document.createElement('li');
-    li.textContent = post.title;
+    li.innerText = post.title;
     postList.appendChild(li);
   });
 }
 
 notifButton.addEventListener('click', () => {
   notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
-  showPosts(); // Menampilkan judul postingan saat klik notifikasi
+  showPosts();
 });
 
-// Script untuk menampilkan jam analog dan kalender saat klik jam
+// Script untuk jam dan kalender
 const clockContainer = document.getElementById('clock-container');
-const jamElement = document.getElementById('jam');
+const analogClockCanvas = document.getElementById('analogCanvas');
+const analogCtx = analogClockCanvas.getContext('2d');
 
-jamElement.addEventListener('click', () => {
+analogClockCanvas.width = 300;
+analogClockCanvas.height = 300;
+
+document.getElementById('jam').addEventListener('click', () => {
   clockContainer.style.display = clockContainer.style.display === 'none' ? 'block' : 'none';
-  displayClock(); // Menampilkan jam analog
-  displayCalendar(); // Menampilkan kalender
+  displayAnalogClock();
+  displayCalendar();
 });
 
-// Menampilkan Jam Analog
-function displayClock() {
-  const clock = document.getElementById('clock');
+// Fungsi untuk menampilkan jam analog
+function displayAnalogClock() {
   const now = new Date();
   const hours = now.getHours();
   const minutes = now.getMinutes();
   const seconds = now.getSeconds();
 
-  clock.innerHTML = `Analog Time: ${hours}:${minutes}:${seconds}`;
+  const centerX = analogClockCanvas.width / 2;
+  const centerY = analogClockCanvas.height / 2;
+  const radius = 120;
+
+  analogCtx.clearRect(0, 0, analogClockCanvas.width, analogClockCanvas.height);
+  analogCtx.beginPath();
+  analogCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+  analogCtx.strokeStyle = '#00ff41';
+  analogCtx.lineWidth = 8;
+  analogCtx.stroke();
+
+  // Jam
+  const hourAngle = (Math.PI / 6) * (hours % 12 + minutes / 60);
+  analogCtx.beginPath();
+  analogCtx.moveTo(centerX, centerY);
+  analogCtx.lineTo(centerX + radius * 0.5 * Math.cos(hourAngle - Math.PI / 2), centerY + radius * 0.5 * Math.sin(hourAngle - Math.PI / 2));
+  analogCtx.strokeStyle = '#00ff41';
+  analogCtx.lineWidth = 6;
+  analogCtx.stroke();
+
+  // Menit
+  const minuteAngle = (Math.PI / 30) * minutes;
+  analogCtx.beginPath();
+  analogCtx.moveTo(centerX, centerY);
+  analogCtx.lineTo(centerX + radius * 0.7 * Math.cos(minuteAngle - Math.PI / 2), centerY + radius * 0.7 * Math.sin(minuteAngle - Math.PI / 2));
+  analogCtx.strokeStyle = '#00ff41';
+  analogCtx.lineWidth = 4;
+  analogCtx.stroke();
+
+  // Detik
+  const secondAngle = (Math.PI / 30) * seconds;
+  analogCtx.beginPath();
+  analogCtx.moveTo(centerX, centerY);
+  analogCtx.lineTo(centerX + radius * 0.8 * Math.cos(secondAngle - Math.PI / 2), centerY + radius * 0.8 * Math.sin(secondAngle - Math.PI / 2));
+  analogCtx.strokeStyle = '#ff0000';
+  analogCtx.lineWidth = 2;
+  analogCtx.stroke();
 }
 
 // Menampilkan Kalender
