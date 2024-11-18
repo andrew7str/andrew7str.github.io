@@ -1,81 +1,148 @@
-// Fungsi untuk update jam dan tanggal secara real-time
-function updateTime() {
-  let jamElement = document.getElementById('jam');
-  let tanggalElement = document.getElementById('tanggal');
+// Script untuk efek rain matrix
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
 
-  let date = new Date();
-  let hours = date.getHours();
-  let minutes = date.getMinutes();
-  let seconds = date.getSeconds();
-  let day = date.getDate();
-  let month = date.getMonth() + 1; // JavaScript menghitung bulan dari 0
-  let year = date.getFullYear();
-
-  // Format jam dan tanggal
-  hours = (hours < 10) ? '0' + hours : hours;
-  minutes = (minutes < 10) ? '0' + minutes : minutes;
-
-  let formattedTime = `${hours}:${minutes}`;
-  let formattedDate = `${day}/${month}/${year}`;
-
-  // Tampilkan jam dan tanggal di taskbar
-  jamElement.innerHTML = formattedTime;
-  tanggalElement.innerHTML = formattedDate;
-}
-
-// Update jam setiap detik
-setInterval(updateTime, 1000);
-updateTime(); // Panggil fungsi sekali untuk memastikan waktu awal muncul
-
-// Fungsi untuk menampilkan dan menyembunyikan pop-up notifikasi
-function showNotification() {
-  let notifMessage = document.getElementById('notifMessage');
-  notifMessage.style.display = notifMessage.style.display === 'block' ? 'none' : 'block';
-}
-
-// Fungsi untuk membuka dan menutup Start Menu
-function toggleStartMenu() {
-  let startMenu = document.querySelector('.start-menu');
-  startMenu.style.display = startMenu.style.display === 'block' ? 'none' : 'block';
-}
-
-// Canvas untuk RainMatrix
-let canvas = document.getElementById('rainMatrix');
-let ctx = canvas.getContext('2d');
-
-canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-// Membuat efek hujan dengan karakter-karakter
-let rainDrops = [];
-const rainChar = ['0', '1', 'A', 'B', 'C', 'D', 'E', 'F'];
+const matrixChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+=-';
 const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = new Array(Math.floor(columns)).fill(1);
 
-function init() {
-  for (let i = 0; i < canvas.width / fontSize; i++) {
-    rainDrops.push({ x: i * fontSize, y: Math.random() * canvas.height });
-  }
-  animate();
-}
-
-function animate() {
+function drawMatrix() {
   ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-  ctx.fillRect(0, 0, canvas.width, canvas.height); // Membersihkan layar dengan transparansi
-  ctx.fillStyle = '#00ff41'; // Warna teks hijau matrix
-  
-  for (let i = 0; i < rainDrops.length; i++) {
-    let rainDrop = rainDrops[i];
-    ctx.fillText(rainChar[Math.floor(Math.random() * rainChar.length)], rainDrop.x, rainDrop.y);
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    rainDrop.y += fontSize;
+  ctx.fillStyle = '#00ff41';
+  ctx.font = `${fontSize}px Courier New`;
 
-    // Reset jatuhnya hujan setelah melewati bawah layar
-    if (rainDrop.y > canvas.height) {
-      rainDrop.y = 0;
+  drops.forEach((y, x) => {
+    const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+    ctx.fillText(text, x * fontSize, y * fontSize);
+
+    if (y * fontSize > canvas.height && Math.random() > 0.975) {
+      drops[x] = 0;
     }
-  }
-  requestAnimationFrame(animate);
+    drops[x]++;
+  });
 }
 
-// Menjalankan inisialisasi dan animasi RainMatrix
-init();
+setInterval(drawMatrix, 50);
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+// Script untuk jam digital dan tanggal
+function updateTime() {
+  const jam = document.getElementById('jam');
+  const tanggal = document.getElementById('tanggal');
+  const now = new Date();
+
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+  const day = now.getDate();
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
+
+  jam.innerText = `${hours}:${minutes}:${seconds}`;
+  tanggal.innerText = `${day}/${month}/${year}`;
+}
+
+setInterval(updateTime, 1000);
+
+// Script untuk jam analog dan kalender
+const analogClockCanvas = document.getElementById('analogCanvas');
+const analogCtx = analogClockCanvas.getContext('2d');
+analogClockCanvas.width = 300;
+analogClockCanvas.height = 300;
+
+function displayAnalogClock() {
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  const centerX = analogClockCanvas.width / 2;
+  const centerY = analogClockCanvas.height / 2;
+  const radius = 120;
+
+  analogCtx.clearRect(0, 0, analogClockCanvas.width, analogClockCanvas.height);
+  analogCtx.beginPath();
+  analogCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+  analogCtx.strokeStyle = '#00ff41';
+  analogCtx.lineWidth = 8;
+  analogCtx.stroke();
+
+  // Jam
+  const hourAngle = (Math.PI / 6) * (hours % 12 + minutes / 60);
+  analogCtx.beginPath();
+  analogCtx.moveTo(centerX, centerY);
+  analogCtx.lineTo(centerX + radius * 0.5 * Math.cos(hourAngle - Math.PI / 2), centerY + radius * 0.5 * Math.sin(hourAngle - Math.PI / 2));
+  analogCtx.strokeStyle = '#00ff41';
+  analogCtx.lineWidth = 6;
+  analogCtx.stroke();
+
+  // Menit
+  const minuteAngle = (Math.PI / 30) * minutes;
+  analogCtx.beginPath();
+  analogCtx.moveTo(centerX, centerY);
+  analogCtx.lineTo(centerX + radius * 0.7 * Math.cos(minuteAngle - Math.PI / 2), centerY + radius * 0.7 * Math.sin(minuteAngle - Math.PI / 2));
+  analogCtx.strokeStyle = '#00ff41';
+  analogCtx.lineWidth = 4;
+  analogCtx.stroke();
+
+  // Detik
+  const secondAngle = (Math.PI / 30) * seconds;
+  analogCtx.beginPath();
+  analogCtx.moveTo(centerX, centerY);
+  analogCtx.lineTo(centerX + radius * 0.8 * Math.cos(secondAngle - Math.PI / 2), centerY + radius * 0.8 * Math.sin(secondAngle - Math.PI / 2));
+  analogCtx.strokeStyle = '#ff0000';
+  analogCtx.lineWidth = 2;
+  analogCtx.stroke();
+}
+
+function displayCalendar() {
+  const calendar = document.getElementById('calendar');
+  const now = new Date();
+  const month = now.getMonth() + 1; // Bulan (1 - 12)
+  const day = now.getDate();
+  const year = now.getFullYear();
+
+  calendar.innerHTML = `Calendar: ${month}/${day}/${year}`;
+}
+
+document.getElementById('jam').addEventListener('click', () => {
+  const clockContainer = document.getElementById('clock-container');
+  clockContainer.style.display = clockContainer.style.display === 'none' ? 'block' : 'none';
+  displayAnalogClock();
+  displayCalendar();
+});
+
+// Script untuk Notifikasi (Postingan)
+const notifButton = document.getElementById('notifikasi');
+const notifMessage = document.getElementById('notif-message');
+const postList = document.getElementById('post-list');
+
+const posts = [
+  { title: "Postingan 1" },
+  { title: "Postingan 2" },
+  { title: "Postingan 3" },
+];
+
+function showPosts() {
+  postList.innerHTML = '';
+  posts.forEach(post => {
+    const li = document.createElement('li');
+    li.innerText = post.title;
+    postList.appendChild(li);
+  });
+}
+
+notifButton.addEventListener('click', () => {
+  notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
+  showPosts();
+});
