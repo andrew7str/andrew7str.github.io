@@ -50,6 +50,14 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime(); // Set initial time
 
+// Script untuk Start Menu
+const startMenu = document.getElementById('startMenu');
+const startMenuDropdown = document.getElementById('startMenuDropdown');
+
+startMenu.addEventListener('click', () => {
+  startMenuDropdown.style.display = startMenuDropdown.style.display === 'none' ? 'block' : 'none';
+});
+
 // Script untuk notifikasi
 const notifButton = document.getElementById('notifikasi');
 const notifMessage = document.getElementById('notif-message');
@@ -57,12 +65,11 @@ const postList = document.getElementById('post-list');
 
 // Daftar Postingan
 const posts = [
-  { title: "Postingan 1: Matrix Launch" },
-  { title: "Postingan 2: DarkTron News" },
-  { title: "Postingan 3: New Code Released" }
+  { title: "Postingan 1" },
+  { title: "Postingan 2" },
+  { title: "Postingan 3" },
 ];
 
-// Menampilkan postingan pada notifikasi
 function showPosts() {
   postList.innerHTML = '';
   posts.forEach(post => {
