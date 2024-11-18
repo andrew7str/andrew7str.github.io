@@ -1,7 +1,7 @@
 // Event untuk Start Menu
 document.getElementById('logo').addEventListener('click', () => {
   const startMenu = document.getElementById('startMenuDropdown');
-  startMenu.classList.toggle('start-menu-show');
+  startMenu.classList.toggle('start-menu-show');  // Menggunakan class untuk tampilkan menu
 });
 
 // Jam Analog dan Kalender Pop-up
