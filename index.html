@@ -3,15 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mr.exe</title>
+  <title>Matrix Web - DarkTron</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Canvas untuk efek rain matrix -->
   <canvas id="matrix"></canvas>
-  <div class="content">
-    <h1>Hack Solustion</h1>
-    <p>Pengen Berak Berak aja boy</p>
+
+  <!-- Taskbar seperti Windows 7 -->
+  <div class="taskbar">
+    <div class="start">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Windows_logo_2021.svg" alt="Windows Logo" class="logo">
+    </div>
+    <div class="taskbar-content">
+      <div class="notifikasi" id="notifikasi">
+        <span>📰</span>
+        <div id="notif-message" class="notif-message" style="display:none;">Ada postingan baru!</div>
+      </div>
+      <div class="jam" id="jam"></div>
+    </div>
   </div>
+
+  <div class="content">
+    <h1>Welcome to the Matrix</h1>
+    <p>Explore the DarkTron vibes with glowing green code.</p>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
