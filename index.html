@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Windows-like Website</title>
+  <title>Windows 7 Simulation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- RainMatrix -->
   <canvas id="rainMatrix"></canvas>
 
-  <!-- Konten Utama -->
+  <!-- Main Content -->
   <div class="content">
     <h1>Selamat Datang!</h1>
-    <p>Ini adalah simulasi antarmuka Windows dengan tema Matrix.</p>
+    <p>Simulasi antarmuka Windows dengan tema Matrix.</p>
   </div>
 
   <!-- Taskbar -->
   <div class="taskbar">
     <!-- Start Menu -->
     <div class="start">
-      <img src="windows-logo.png" class="logo" alt="Windows Logo" onclick="toggleStartMenu()">
+      <img src="windows-logo.png" alt="Windows Logo" class="logo" onclick="toggleStartMenu()">
       <div class="start-menu">
         <ul>
           <li>Aplikasi 1</li>
@@ -30,23 +30,23 @@
       </div>
     </div>
 
-    <!-- Jam dan Tanggal -->
+    <!-- Time and Date -->
     <div class="taskbar-content">
       <div class="jam-tanggal">
-        <div id="jam" class="jam"></div>
-        <div id="tanggal" class="tanggal"></div>
+        <div id="jam"></div>
+        <div id="tanggal"></div>
       </div>
     </div>
 
-    <!-- Notifikasi -->
+    <!-- Notifications -->
     <div class="notifikasi" onclick="toggleNotification()">
-      <span>Notifikasi</span>
+      <span>🔔 Notifikasi</span>
       <div id="notifPopup" class="notif-message">Judul Postingan Anda</div>
     </div>
   </div>
 
-  <!-- Popup Jam Analog dan Kalender -->
-  <div id="clock-container" class="popup-container">
+  <!-- Popup: Analog Clock & Calendar -->
+  <div id="popupClock" class="popup-container">
     <div id="analogClock" class="analog-clock"></div>
     <div id="calendar" class="calendar"></div>
   </div>
