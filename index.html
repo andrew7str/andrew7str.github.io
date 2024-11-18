@@ -3,57 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matrix Web - DarkTron</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>My Windows-like Website</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Canvas untuk efek rain matrix -->
+  <!-- Canvas untuk RainMatrix -->
   <canvas id="rainMatrix"></canvas>
 
-  <!-- Taskbar seperti Windows 7 -->
+  <!-- Konten Website -->
+  <div class="content">
+    <h1>Welcome to My Website</h1>
+    <p>Enjoy the Matrix-like experience!</p>
+  </div>
+
+  <!-- Taskbar -->
   <div class="taskbar">
-    <div class="start" id="startMenu">
-      <img src="https://logodix.com/logo/526951.png" alt="Windows Logo" class="logo" id="logo">
-      <div id="startMenuDropdown" class="start-menu">
+    <!-- Start Menu -->
+    <div class="start">
+      <img src="windows-logo.png" class="logo" alt="Windows Logo" onclick="toggleStartMenu()">
+      <div class="start-menu">
         <ul>
-          <li id="home">Home</li>
-          <li id="about">About</li>
-          <li id="contact">Contact</li>
-          <li id="shutdown">Shut Down</li>
+          <li>Program 1</li>
+          <li>Program 2</li>
+          <li>Program 3</li>
         </ul>
       </div>
     </div>
+    
+    <!-- Jam dan Tanggal -->
     <div class="taskbar-content">
-      <div class="notifikasi" id="notifikasi">
-        <span>📰</span>
-        <div id="notif-message" class="notif-message" style="display:none;">
-          <h3>Postingan</h3>
-          <ul id="post-list"></ul>
-        </div>
+      <div class="jam-tanggal">
+        <div class="jam" id="jam"></div>
+        <div class="tanggal" id="tanggal"></div>
       </div>
-        <!-- Jam dan Tanggal -->
-      <div class="taskbar-content">
-      <div class="jam" id="jam"></div>
-      <div class="tanggal" id="tanggal"></div>
     </div>
-        <!-- Notifikasi (Postingan) -->
+    
+    <!-- Notifikasi (Postingan) -->
     <div class="notifikasi" onclick="showNotification()">Notifikasi</div>
     <div class="notif-message" id="notifMessage">Judul Postingan</div>
-    </div>
-    </div>
   </div>
 
-  <div class="content">
-    <h1>Welcome to the Matrix</h1>
-    <p>Explore the DarkTron vibes with glowing green code.</p>
-  </div>
-
-  <!-- Pop-up untuk Jam Analog dan Kalender di pojok kanan atas -->
-  <div id="clock-container" style="display: none; position: fixed; top: 10px; right: 10px; background-color: rgba(0, 0, 0, 0.1); padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #00ff41;">
-    <div id="analogClock" class="clock-popup">
-      <canvas id="analogCanvas"></canvas>
-      <div id="calendar"></div>
-    </div>
+  <!-- Pop-up untuk Jam Analog dan Kalender -->
+  <div id="clock-container" style="display: none;">
+    <div id="analogClock"></div>
+    <div id="calendar"></div>
   </div>
 
   <script src="script.js"></script>
