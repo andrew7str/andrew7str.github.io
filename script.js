@@ -57,4 +57,11 @@ const notifMessage = document.getElementById('notif-message');
 notifButton.addEventListener('click', () => {
   notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
 });
- 
+
+// Script untuk Start Menu (logo Windows)
+const startLogo = document.getElementById('logo');
+const startMenu = document.getElementById('startMenuDropdown');
+
+startLogo.addEventListener('click', () => {
+  startMenu.style.display = startMenu.style.display === 'none' || startMenu.style.display === '' ? 'block' : 'none';
+});
