@@ -57,3 +57,4 @@ const notifMessage = document.getElementById('notif-message');
 notifButton.addEventListener('click', () => {
   notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
 });
+ 
