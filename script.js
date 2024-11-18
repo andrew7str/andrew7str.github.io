@@ -1,4 +1,4 @@
-// RainMatrix
+// RainMatrix Effect
 const canvas = document.getElementById("rainMatrix");
 const ctx = canvas.getContext("2d");
 canvas.height = window.innerHeight;
@@ -24,11 +24,12 @@ function drawRainMatrix() {
     }
     drops[x]++;
   });
+
   requestAnimationFrame(drawRainMatrix);
 }
 drawRainMatrix();
 
-// Jam dan Tanggal
+// Update Time and Date
 function updateTime() {
   const now = new Date();
   document.getElementById("jam").textContent = now.toLocaleTimeString("id-ID");
@@ -37,13 +38,13 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// Start Menu
+// Toggle Start Menu
 function toggleStartMenu() {
   const startMenu = document.querySelector(".start-menu");
   startMenu.style.display = startMenu.style.display === "block" ? "none" : "block";
 }
 
-// Notifikasi
+// Toggle Notification
 function toggleNotification() {
   const notifPopup = document.getElementById("notifPopup");
   notifPopup.style.display = notifPopup.style.display === "block" ? "none" : "block";
