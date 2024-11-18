@@ -15,8 +15,8 @@ document.getElementById('jam').addEventListener('click', () => {
 function displayAnalogClock() {
   const analogClockCanvas = document.getElementById('analogCanvas');
   const analogCtx = analogClockCanvas.getContext('2d');
-  analogClockCanvas.width = 150;
-  analogClockCanvas.height = 150;
+  analogClockCanvas.width = 180; // Ukuran lebih besar untuk jam analog
+  analogClockCanvas.height = 180;
 
   // Logic untuk menggambar jam analog
   const now = new Date();
@@ -26,7 +26,7 @@ function displayAnalogClock() {
 
   const centerX = analogClockCanvas.width / 2;
   const centerY = analogClockCanvas.height / 2;
-  const radius = 60;  // Sesuaikan dengan ukuran yang lebih kecil
+  const radius = 60;  // Ukuran jam
 
   analogCtx.clearRect(0, 0, analogClockCanvas.width, analogClockCanvas.height);
   analogCtx.beginPath();
@@ -69,6 +69,5 @@ function displayCalendar() {
   const month = now.getMonth() + 1; // Bulan (1 - 12)
   const day = now.getDate();
   const year = now.getFullYear();
-
-  calendar.innerHTML = `Calendar: ${month}/${day}/${year}`;
+  calendar.innerHTML = `${month}/${day}/${year}`;
 }
