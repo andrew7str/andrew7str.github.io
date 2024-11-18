@@ -123,6 +123,7 @@ p {
   font-size: 0.9em;
 }
 
+/* Pop-up untuk Jam Analog dan Kalender */
 #clock-container {
   position: fixed;
   top: 20%;
@@ -135,11 +136,21 @@ p {
   display: none;
 }
 
-#clock {
-  font-size: 2em;
-  margin-bottom: 10px;
+#analogClock {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  background-color: #222;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #00ff41;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #calendar {
-  font-size: 1.5em;
+  margin-top: 20px;
+  color: #fff;
+  font-size: 1.2em;
+  text-align: center;
 }
