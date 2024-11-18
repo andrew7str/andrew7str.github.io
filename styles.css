@@ -12,7 +12,7 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0; /* Canvas berada di bawah elemen lain */
+  z-index: 1;
 }
 
 /* Styling untuk Content */
@@ -44,43 +44,9 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  z-index: 10; /* Taskbar di atas RainMatrix */
+  z-index: 10;
 }
 
-.taskbar-content {
-  display: flex;
-  align-items: center;
-}
-
-.jam, .tanggal {
-  font-size: 1.5em;
-  color: #fff;
-}
-
-.jam-tanggal {
-  text-align: center;
-}
-
-.notifikasi {
-  position: relative;
-  cursor: pointer;
-  color: #fff;
-  margin-right: 20px;
-}
-
-.notif-message {
-  position: absolute;
-  bottom: 30px;
-  left: 0;
-  background: #00ff41;
-  color: #000;
-  padding: 10px;
-  border-radius: 5px;
-  display: none;
-  font-size: 0.9em;
-}
-
-/* Styling Start Menu */
 .start {
   display: flex;
   align-items: center;
@@ -96,9 +62,9 @@ p {
 .start-menu {
   display: none;
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   left: 0;
-  background-color: rgba(51, 51, 51, 0.9); /* Transparansi 90% */
+  background-color: #333;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px #00ff41;
@@ -123,10 +89,56 @@ p {
   background-color: #00ff41;
 }
 
+.taskbar-content {
+  display: flex;
+  align-items: center;
+}
+
+.jam-tanggal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #00ff41;
+  font-size: 1.2em;
+  margin-left: 20px;
+}
+
+.jam {
+  font-size: 1.5em;
+}
+
+.tanggal {
+  font-size: 1.2em;
+  margin-top: 5px;
+}
+
+.notifikasi {
+  position: relative;
+  cursor: pointer;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.notifikasi:hover .notif-message {
+  display: block;
+}
+
+.notif-message {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  background: #00ff41;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  font-size: 0.9em;
+}
+
 /* Pop-up untuk Jam Analog dan Kalender */
 #clock-container {
   position: fixed;
-  bottom: 50px;
+  top: 10px;
   right: 10px;
   background-color: rgba(0, 0, 0, 0.9); /* Transparansi 90% */
   padding: 20px;
@@ -136,13 +148,15 @@ p {
 }
 
 #analogClock {
-  width: 150px;
-  height: 150px;
+  width: 300px;
+  height: 300px;
   position: relative;
   background-color: #222;
   border-radius: 50%;
   box-shadow: 0 0 15px #00ff41;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #calendar {
