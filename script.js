@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
- 
+
 const matrixChars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+=-';
 const fontSize = 16;
 const columns = canvas.width / fontSize;
@@ -38,67 +38,28 @@ window.addEventListener('resize', () => {
 // Script untuk jam digital dan tanggal
 function updateTime() {
   const jam = document.getElementById('jam');
+  const tanggal = document.getElementById('tanggal');
   const now = new Date();
+
   const hours = now.getHours().toString().padStart(2, '0');
   const minutes = now.getMinutes().toString().padStart(2, '0');
   const seconds = now.getSeconds().toString().padStart(2, '0');
-  const date = now.toLocaleDateString();
+  const day = now.getDate();
+  const month = now.getMonth() + 1;
+  const year = now.getFullYear();
 
-  jam.innerHTML = `${hours}:${minutes}:${seconds} | ${date}`;
+  jam.innerText = `${hours}:${minutes}:${seconds}`;
+  tanggal.innerText = `${day}/${month}/${year}`;
 }
 
 setInterval(updateTime, 1000);
-updateTime(); // Set initial time
 
-// Script untuk Start Menu
-const startMenu = document.getElementById('startMenu');
-const startMenuDropdown = document.getElementById('startMenuDropdown');
-
-startMenu.addEventListener('click', () => {
-  startMenuDropdown.style.display = startMenuDropdown.style.display === 'none' ? 'block' : 'none';
-});
-
-// Script untuk notifikasi
-const notifButton = document.getElementById('notifikasi');
-const notifMessage = document.getElementById('notif-message');
-const postList = document.getElementById('post-list');
-
-// Daftar Postingan
-const posts = [
-  { title: "Postingan 1" },
-  { title: "Postingan 2" },
-  { title: "Postingan 3" },
-];
-
-function showPosts() {
-  postList.innerHTML = '';
-  posts.forEach(post => {
-    const li = document.createElement('li');
-    li.innerText = post.title;
-    postList.appendChild(li);
-  });
-}
-
-notifButton.addEventListener('click', () => {
-  notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
-  showPosts();
-});
-
-// Script untuk jam dan kalender
-const clockContainer = document.getElementById('clock-container');
+// Script untuk jam analog dan kalender
 const analogClockCanvas = document.getElementById('analogCanvas');
 const analogCtx = analogClockCanvas.getContext('2d');
-
 analogClockCanvas.width = 300;
 analogClockCanvas.height = 300;
 
-document.getElementById('jam').addEventListener('click', () => {
-  clockContainer.style.display = clockContainer.style.display === 'none' ? 'block' : 'none';
-  displayAnalogClock();
-  displayCalendar();
-});
-
-// Fungsi untuk menampilkan jam analog
 function displayAnalogClock() {
   const now = new Date();
   const hours = now.getHours();
@@ -144,7 +105,6 @@ function displayAnalogClock() {
   analogCtx.stroke();
 }
 
-// Menampilkan Kalender
 function displayCalendar() {
   const calendar = document.getElementById('calendar');
   const now = new Date();
@@ -154,3 +114,35 @@ function displayCalendar() {
 
   calendar.innerHTML = `Calendar: ${month}/${day}/${year}`;
 }
+
+document.getElementById('jam').addEventListener('click', () => {
+  const clockContainer = document.getElementById('clock-container');
+  clockContainer.style.display = clockContainer.style.display === 'none' ? 'block' : 'none';
+  displayAnalogClock();
+  displayCalendar();
+});
+
+// Script untuk Notifikasi (Postingan)
+const notifButton = document.getElementById('notifikasi');
+const notifMessage = document.getElementById('notif-message');
+const postList = document.getElementById('post-list');
+
+const posts = [
+  { title: "Postingan 1" },
+  { title: "Postingan 2" },
+  { title: "Postingan 3" },
+];
+
+function showPosts() {
+  postList.innerHTML = '';
+  posts.forEach(post => {
+    const li = document.createElement('li');
+    li.innerText = post.title;
+    postList.appendChild(li);
+  });
+}
+
+notifButton.addEventListener('click', () => {
+  notifMessage.style.display = notifMessage.style.display === 'none' ? 'block' : 'none';
+  showPosts();
+});
