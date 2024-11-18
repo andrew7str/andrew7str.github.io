@@ -71,3 +71,44 @@ function displayCalendar() {
   const year = now.getFullYear();
   calendar.innerHTML = `${month}/${day}/${year}`;
 }
+
+// Pastikan elemen canvas tersedia
+let canvas = document.getElementById('rainMatrix');
+let ctx = canvas.getContext('2d');
+
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+// Membuat efek hujan dengan karakter-karakter
+let rainDrops = [];
+const rainChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+const fontSize = 16;
+
+function init() {
+  for (let i = 0; i < canvas.width / fontSize; i++) {
+    rainDrops.push({ x: i * fontSize, y: Math.random() * canvas.height });
+  }
+  animate();
+}
+
+function animate() {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height); // Membersihkan layar dengan transparansi
+  ctx.fillStyle = '#00ff41'; // Warna teks hijau matrix
+  
+  for (let i = 0; i < rainDrops.length; i++) {
+    let rainDrop = rainDrops[i];
+    ctx.fillText(rainChar[Math.floor(Math.random() * rainChar.length)], rainDrop.x, rainDrop.y);
+
+    rainDrop.y += fontSize;
+
+    // Reset jatuhnya hujan setelah melewati bawah layar
+    if (rainDrop.y > canvas.height) {
+      rainDrop.y = 0;
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+// Menjalankan inisialisasi dan animasi RainMatrix
+init();
