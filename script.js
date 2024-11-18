@@ -112,3 +112,45 @@ function animate() {
 
 // Menjalankan inisialisasi dan animasi RainMatrix
 init();
+
+// Fungsi untuk update jam dan tanggal secara real-time
+function updateTime() {
+  let jamElement = document.getElementById('jam');
+  let tanggalElement = document.getElementById('tanggal');
+
+  let date = new Date();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  let day = date.getDate();
+  let month = date.getMonth() + 1; // JavaScript menghitung bulan dari 0
+  let year = date.getFullYear();
+
+  // Format jam dan tanggal
+  hours = (hours < 10) ? '0' + hours : hours;
+  minutes = (minutes < 10) ? '0' + minutes : minutes;
+  seconds = (seconds < 10) ? '0' + seconds : seconds;
+  
+  let formattedTime = `${hours}:${minutes}:${seconds}`;
+  let formattedDate = `${month}/${day}/${year}`;
+
+  // Tampilkan jam dan tanggal di taskbar
+  jamElement.innerHTML = formattedTime;
+  tanggalElement.innerHTML = formattedDate;
+}
+
+// Update jam setiap detik
+setInterval(updateTime, 1000);
+updateTime(); // Panggil fungsi sekali untuk memastikan waktu awal muncul
+
+// Fungsi untuk menampilkan dan menyembunyikan pop-up notifikasi
+function showNotification() {
+  let notifMessage = document.getElementById('notifMessage');
+  notifMessage.style.display = notifMessage.style.display === 'block' ? 'none' : 'block';
+}
+
+// Fungsi untuk membuka dan menutup Start Menu
+function toggleStartMenu() {
+  let startMenu = document.querySelector('.start-menu');
+  startMenu.style.display = startMenu.style.display === 'block' ? 'none' : 'block';
+}
