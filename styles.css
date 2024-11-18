@@ -12,7 +12,7 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 0; /* Memastikan RainMatrix di layer paling bawah */
+  z-index: 0; /* Memastikan RainMatrix berada di layer paling bawah */
 }
 
 /* Styling untuk Content */
@@ -44,7 +44,7 @@ p {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  z-index: 10;
+  z-index: 10;  /* Taskbar di atas RainMatrix */
 }
 
 .start {
@@ -68,7 +68,7 @@ p {
   padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px #00ff41;
-  z-index: 20;
+  z-index: 20;  /* Start menu di atas taskbar */
   width: 200px; /* Lebar Start Menu mirip Windows 7 */
 }
 
@@ -135,7 +135,7 @@ p {
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 0 10px #00ff41;
-  z-index: 100;
+  z-index: 100;  /* Pop-up jam di atas taskbar */
   width: 250px;  /* Ukuran lebih kecil dari sebelumnya */
   display: none;
 }
