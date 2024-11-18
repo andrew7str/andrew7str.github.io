@@ -1,11 +1,10 @@
-/* Styling untuk Body dan Canvas */
+/* General Settings */
 body, html {
   margin: 0;
   padding: 0;
   overflow: hidden;
   background: #000;
-  color: #00ff41;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 canvas {
@@ -15,16 +14,22 @@ canvas {
   z-index: 0;
 }
 
-/* Konten Utama */
+/* Main Content */
 .content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   text-align: center;
-  margin: 20%;
+  margin: 10% auto;
+  color: #00ff41;
 }
 
-h1, p {
+h1 {
+  font-size: 2.5rem;
   text-shadow: 0 0 10px #00ff41;
+}
+
+p {
+  font-size: 1.2rem;
 }
 
 /* Taskbar */
@@ -33,18 +38,19 @@ h1, p {
   bottom: 0;
   width: 100%;
   height: 50px;
-  background: rgba(51, 51, 51, 0.8);
+  background: rgba(30, 30, 30, 0.8); /* Transparansi 80% */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 15px;
+  padding: 0 15px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
   z-index: 10;
 }
 
 .start {
-  position: relative;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -56,10 +62,12 @@ h1, p {
   display: none;
   position: absolute;
   bottom: 55px;
+  left: 0;
+  width: 200px;
   background: rgba(0, 0, 0, 0.9);
-  padding: 10px;
   border-radius: 5px;
   box-shadow: 0 0 10px #00ff41;
+  padding: 10px;
 }
 
 .start-menu ul {
@@ -69,64 +77,69 @@ h1, p {
 }
 
 .start-menu li {
-  padding: 8px;
-  color: white;
+  padding: 10px;
   cursor: pointer;
+  color: #fff;
 }
 
 .start-menu li:hover {
   background: #00ff41;
+  color: #000;
 }
 
 /* Jam dan Tanggal */
-.taskbar-content {
-  text-align: center;
+.jam-tanggal {
+  text-align: right;
   color: white;
 }
 
-.jam, .tanggal {
-  font-size: 1.2em;
+.jam {
+  font-size: 1rem;
 }
 
+.tanggal {
+  font-size: 0.9rem;
+}
+
+/* Notifikasi */
 .notifikasi {
-  position: relative;
   cursor: pointer;
+  color: white;
 }
 
-.notif-message {
+.notifikasi .notif-message {
   display: none;
   position: absolute;
-  bottom: 55px;
-  right: 0;
-  background: rgba(0, 255, 65, 0.9);
+  bottom: 60px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
   padding: 10px;
   border-radius: 5px;
-  color: black;
 }
 
-/* Popup Jam Analog dan Kalender */
+/* Popup Clock and Calendar */
 .popup-container {
+  display: none;
   position: fixed;
   bottom: 60px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.9);
-  padding: 20px;
+  background: rgba(0, 0, 0, 0.9); /* Transparansi 90% */
   border-radius: 10px;
+  padding: 20px;
   box-shadow: 0 0 10px #00ff41;
-  display: none;
-  z-index: 20;
 }
 
 .analog-clock {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
+  margin: auto;
   border: 5px solid #00ff41;
   border-radius: 50%;
-  margin: auto;
 }
 
 .calendar {
-  margin-top: 15px;
+  margin-top: 10px;
   text-align: center;
   color: white;
 }
