@@ -69,6 +69,7 @@ p {
   border-radius: 5px;
   box-shadow: 0 0 10px #00ff41;
   z-index: 20;
+  width: 200px; /* Lebar Start Menu mirip Windows 7 */
 }
 
 .start-menu ul {
@@ -79,8 +80,9 @@ p {
 
 .start-menu li {
   color: #fff;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
+  border-bottom: 1px solid #444;
 }
 
 .start-menu li:hover {
