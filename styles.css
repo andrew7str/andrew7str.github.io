@@ -1,4 +1,4 @@
-/* Styling untuk Body dan Canvas */
+/* Styling umum untuk Body dan Canvas */
 body, html {
   margin: 0;
   padding: 0;
@@ -12,10 +12,10 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
 }
 
-/* Styling untuk Content */
+/* Konten Utama */
 .content {
   position: relative;
   z-index: 2;
@@ -23,134 +23,105 @@ canvas {
   margin: 20%;
 }
 
-h1 {
-  font-size: 3em;
-  text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+h1, p {
+  text-shadow: 0 0 10px #00ff41;
 }
 
-p {
-  font-size: 1.5em;
-  text-shadow: 0 0 5px #00ff41;
-}
-
-/* Styling Taskbar */
+/* Taskbar */
 .taskbar {
   position: fixed;
   bottom: 0;
-  left: 0;
   width: 100%;
-  background: rgba(51, 51, 51, 0.8); /* Transparansi 80% */
+  background: rgba(51, 51, 51, 0.8);
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 10px 20px;
   z-index: 10;
 }
 
 .start {
-  display: flex;
-  align-items: center;
   position: relative;
 }
 
 .logo {
   width: 20px;
-  margin-right: 10px;
   cursor: pointer;
 }
 
 .start-menu {
   display: none;
   position: absolute;
-  bottom: 30px;
-  left: 0;
-  background-color: #333;
-  padding: 10px;
+  bottom: 40px;
+  background: rgba(51, 51, 51, 0.9);
   border-radius: 5px;
   box-shadow: 0 0 10px #00ff41;
+  padding: 10px;
   z-index: 20;
-  width: 200px; /* Lebar Start Menu mirip Windows 7 */
 }
 
 .start-menu ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .start-menu li {
-  color: #fff;
   padding: 10px;
+  color: white;
   cursor: pointer;
-  border-bottom: 1px solid #444;
 }
 
 .start-menu li:hover {
-  background-color: #00ff41;
+  background: #00ff41;
 }
 
 .taskbar-content {
-  display: flex;
-  align-items: center;
+  text-align: center;
 }
 
-.jam {
-  color: #00ff41;
-  font-size: 1.2em;
-  margin-right: 20px;
+.jam, .tanggal {
+  font-size: 1.5em;
+  color: #fff;
 }
 
 .notifikasi {
-  position: relative;
   cursor: pointer;
   color: #fff;
-  margin-right: 20px;
-}
-
-.notifikasi:hover .notif-message {
-  display: block;
 }
 
 .notif-message {
+  display: none;
   position: absolute;
-  bottom: 30px;
-  left: 0;
-  background: #00ff41;
+  bottom: 40px;
+  right: 10px;
+  background: rgba(0, 255, 65, 0.9);
   color: #000;
   padding: 10px;
   border-radius: 5px;
-  display: none;
-  font-size: 0.9em;
 }
 
-/* Pop-up untuk Jam Analog dan Kalender */
+/* Popup Jam dan Kalender */
 #clock-container {
   position: fixed;
-  top: 20%;
-  left: 20%;
-  background-color: #333;
-  padding: 20px;
+  bottom: 70px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
+  padding: 20px;
   box-shadow: 0 0 10px #00ff41;
-  z-index: 100;
   display: none;
 }
- 
+
 #analogClock {
-  width: 300px;
-  height: 300px;
-  position: relative;
-  background-color: #222;
+  width: 150px;
+  height: 150px;
+  background: #222;
   border-radius: 50%;
-  box-shadow: 0 0 15px #00ff41;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: auto;
 }
 
 #calendar {
   margin-top: 20px;
-  color: #fff;
-  font-size: 1.2em;
   text-align: center;
+  color: white;
 }
