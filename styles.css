@@ -39,7 +39,7 @@ p {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: #333;
+  background: rgba(51, 51, 51, 0.8); /* Transparansi 80% */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,11 +50,41 @@ p {
 .start {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .logo {
   width: 20px;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.start-menu {
+  display: none;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #00ff41;
+  z-index: 20;
+}
+
+.start-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.start-menu li {
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.start-menu li:hover {
+  background-color: #00ff41;
 }
 
 .taskbar-content {
