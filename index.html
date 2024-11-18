@@ -7,13 +7,13 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Canvas untuk RainMatrix -->
+  <!-- RainMatrix -->
   <canvas id="rainMatrix"></canvas>
 
   <!-- Konten Utama -->
   <div class="content">
-    <h1>Welcome to My Website</h1>
-    <p>This is a Windows-like interface with a Matrix theme.</p>
+    <h1>Selamat Datang!</h1>
+    <p>Ini adalah simulasi antarmuka Windows dengan tema Matrix.</p>
   </div>
 
   <!-- Taskbar -->
@@ -23,9 +23,9 @@
       <img src="windows-logo.png" class="logo" alt="Windows Logo" onclick="toggleStartMenu()">
       <div class="start-menu">
         <ul>
-          <li>Program 1</li>
-          <li>Program 2</li>
-          <li>Program 3</li>
+          <li>Aplikasi 1</li>
+          <li>Aplikasi 2</li>
+          <li>Aplikasi 3</li>
         </ul>
       </div>
     </div>
@@ -33,20 +33,22 @@
     <!-- Jam dan Tanggal -->
     <div class="taskbar-content">
       <div class="jam-tanggal">
-        <div class="jam" id="jam"></div>
-        <div class="tanggal" id="tanggal"></div>
+        <div id="jam" class="jam"></div>
+        <div id="tanggal" class="tanggal"></div>
       </div>
     </div>
 
-    <!-- Notifikasi Postingan -->
-    <div class="notifikasi" onclick="showNotification()">Notifikasi</div>
-    <div class="notif-message" id="notifMessage">Judul Postingan</div>
+    <!-- Notifikasi -->
+    <div class="notifikasi" onclick="toggleNotification()">
+      <span>Notifikasi</span>
+      <div id="notifPopup" class="notif-message">Judul Postingan Anda</div>
+    </div>
   </div>
 
   <!-- Popup Jam Analog dan Kalender -->
-  <div id="clock-container" style="display: none;">
-    <div id="analogClock"></div>
-    <div id="calendar"></div>
+  <div id="clock-container" class="popup-container">
+    <div id="analogClock" class="analog-clock"></div>
+    <div id="calendar" class="calendar"></div>
   </div>
 
   <script src="script.js"></script>
