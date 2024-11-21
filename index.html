@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mr.exe - A simulation of a Windows-like interface with matrix rain effect.">
     <title>Mr.exe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="matrix-canvas"></canvas>
+    
     <div class="taskbar">
         <div class="start-menu">
             <div class="user-profile">
-                <img src="user.jpg" alt="User Profile">
+                <img src="user.jpg" alt="User  Profile Picture of Username" />
                 <span>Username</span>
             </div>
             <div class="menu-content">
@@ -30,15 +32,34 @@
                 <span class="date">19/11/2024</span>
             </div>
             <div class="popup" id="clock-popup">
-                <div class="analog-clock"></div>
-                <div class="calendar">Calendar Here</div>
+                <div class="analog-clock">
+                    <!-- Placeholder for analog clock -->
+                    <h3>Analog Clock</h3>
+                    <div class="clock-face">
+                        <div class="hand hour-hand"></div>
+                        <div class="hand minute-hand"></div>
+                        <div class="hand second-hand"></div>
+                    </div>
+                </div>
+                <div class="calendar">
+                    <!-- Placeholder for calendar -->
+                    <h3>Calendar</h3>
+                    <p>November 2024</p>
+                    <p>Sun Mon Tue Wed Thu Fri Sat</p>
+                    <p>    1   2   3   4   5   6   7</p>
+                    <p> 8   9  10  11  12  13  14</p>
+                    <p>15  16  17  18  19  20  21</p>
+                    <p>22  23  24  25  26  27  28</p>
+                    <p>29  30</p>
+                </div>
             </div>
-            <button onclick="showNotification()">Notification</button>
         </div>
     </div>
-    <div class="main-content">
+    
+    <main class="main-content">
         <h1>WELCOME Windows XZ</h1>
-    </div>
+    </main>
+    
     <script src="script.js"></script>
 </body>
 </html>

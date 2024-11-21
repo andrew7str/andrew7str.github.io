@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: #000;
+    color: #00ff00;
+}
+
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.taskbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.start-menu {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    width: 300px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid #333;
+    display: none;
+    flex-direction: column;
+    color: #00ff00;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.menu-content {
+    padding: 10px;
+}
+
+.taskbar-left, .taskbar-right {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.time-date {
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #00ff00;
+    border: 1px solid #333;
+    padding: 10px;
+}
+
+.main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #00ff00;
+}
+
+.popup {
+    display: none; /* Sembunyikan popup secara default */
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+    background: rgba(20, 20, 20, 0.95);
+    color: #00ff00;
+    border: 1px solid #333;
+    padding: 10px;
+    width: 300px; /* Lebar popup */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 100; /* Pastikan popup di atas elemen lain */
+}
+
+.analog-clock {
+    float: left; /* Letakkan jam analog di sebelah kiri */
+    width: 120px; /* Lebar jam analog */
+    text-align: center;
+}
+
+.calendar {
+    float: right; /* Letakkan kalender di sebelah kanan */
+    width: 160px; /* Lebar kalender */
+    text-align: center;
+}
+
+.clock-face {
+    position: relative;
+    width: 100px; /* Lebar wajah jam */
+    height: 100px; /* Tinggi wajah jam */
+    border: 5px solid #00ff00; /* Warna wajah jam */
+    border-radius: 50%; /* Membuat wajah jam bulat */
+    margin: 0 auto; /* Pusatkan wajah jam */
+}
+
+.hand {
+    position: absolute;
+    background: #00ff00; /* Warna jarum jam */
+    transform-origin: bottom;
+}
+
+.hour-hand {
+    width: 6px;
+    height: 30px; /* Panjang jarum jam */
+    bottom: 50%; /* Posisi jarum jam */
+    left: 50%; /* Pusatkan jarum jam */
+    transform: translateX(-50%)
+	}
+
+.minute-hand {
+    width: 4px;
+    height: 40px; /* Panjang jarum menit */
+    bottom: 50%; /* Posisi jarum menit */
+    left: 50%; /* Pusatkan jarum menit */
+    transform: translateX(-50%) rotate(180deg); /* Rotasi jarum menit */
+}
+
+.second-hand {
+    width: 2px;
+    height: 45px; /* Panjang jarum detik */
+    bottom: 50%; /* Posisi jarum detik */
+    left: 50%; /* Pusatkan jarum detik */
+    transform: translateX(-50%) rotate(270deg); /* Rotasi jarum detik */
+}
