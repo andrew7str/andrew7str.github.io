@@ -1,99 +1,107 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    background: #000;
-    color: #00ff00;
-}
-
-#matrix-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    margin: 0;
+    background-color: #0078D7;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .taskbar {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     height: 40px;
-    background: rgba(0, 0, 0, 0.9);
+    background-color: #2D2D30;
     display: flex;
     justify-content: space-between;
-    color: white;
-}
-
-.start-menu {
-    position: absolute;
-    bottom: 40px;
-    left: 10px;
-    width: 300px;
-    background: rgba(20, 20, 20, 0.95);
-    border: 1px solid #333;
-    display: none;
-    flex-direction: column;
-    color: #00ff00;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #333;
-}
-
-.user-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.menu-content {
-    padding: 10px;
-}
-
-.taskbar-left, .taskbar-right {
-    display: flex;
     align-items: center;
     padding: 0 10px;
 }
 
-.time-date {
-    cursor: pointer;
+.start-menu {
+    position: relative;
 }
 
-.popup {
+.menu-content {
     display: none;
     position: absolute;
-    right: 10px;
-    bottom: 50px;
-    background: rgba(0, 0, 0, 0.9);
-    color: #00ff00;
-    border: 1px solid #333;
+    bottom: 40px;
+    left: 0;
+    background-color: #2D2D30;
+    border: 1px solid #1C1C1C;
     padding: 10px;
 }
 
-.main-content {
-    position: absolute;
+.menu-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-content ul li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.menu-content ul li:hover {
+    background-color: #1C1C1C;
+}
+
+.clock {
+    cursor: pointer;
+}
+
+.calendar-popup {
+    display: none;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: #00ff00;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 1000;
 }
 
+.analog-clock {
+    position: fixed;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: #00ff00;
+    width: 200px;
+    height: 200px;
+    border: 10px solid white;
+    border-radius: 50%;
+    position: relative;
+}
+
+.hand {
+    position: absolute;
+    background: white;
+    transform-origin: bottom;
+}
+
+.hour {
+    width: 6px;
+    height: 50px;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.minute {
+    width: 4px;
+    height: 70px;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.second {
+    width: 2px;
+    height: 90px;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
 }
