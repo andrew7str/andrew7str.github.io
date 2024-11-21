@@ -1,44 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr.exe</title>
+    <title>Windows 8 Style Website</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="matrix-canvas"></canvas>
     <div class="taskbar">
-        <div class="start-menu">
-            <div class="user-profile">
-                <img src="user.jpg" alt="User Profile">
-                <span>Username</span>
-            </div>
-            <div class="menu-content">
-                <p>Start Menu Content</p>
+        <div class="start-menu" id="start-menu">
+            <button onclick="toggleStartMenu()">Start</button>
+            <div class="menu-content" id="menu-content">
+                <ul>
+                    <li>Program 1</li>
+                    <li>Program 2</li>
+                    <li>Program 3</li>
+                </ul>
             </div>
         </div>
-        <div class="taskbar-left">
-            <span class="wifi-status">WiFi</span>
-            <span class="battery-status">Battery</span>
-            <span class="speaker-status">Speaker</span>
-        </div>
-        <div class="taskbar-right">
-            <div class="time-date" onclick="toggleClockPopup()">
-                <span class="time">10:45</span>
-                <span class="date">19/11/2024</span>
-            </div>
-            <div class="popup" id="clock-popup">
-                <div class="analog-clock"></div>
-                <div class="calendar">Calendar Here</div>
-            </div>
-            <button onclick="showNotification()">Notification</button>
+        <div class="clock" id="clock" onclick="toggleCalendar()">
+            <span id="date"></span>
+            <span id="time"></span>
         </div>
     </div>
-    <div class="main-content">
-        <h1>WELCOME Windows XZ</h1>
+
+    <div class="calendar-popup" id="calendar-popup">
+        <div class="calendar-header">
+            <h2 id="calendar-title"></h2>
+            <button onclick="toggleCalendar()">X</button>
+        </div>
+        <div id="calendar"></div>
     </div>
+
+    <div id="analog-clock" class="analog-clock">
+        <div class="hand hour" id="hour-hand"></div>
+        <div class="hand minute" id="minute-hand"></div>
+        <div class="hand second" id="second-hand"></div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
