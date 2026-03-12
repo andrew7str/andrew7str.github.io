@@ -118,25 +118,49 @@
 
     // --- AI & SETTINGS LOGIC ---
     // Daftar Model Lengkap
-// Daftar Model Generasi Terbaru
+    // Daftar Model Lengkap (Dari Jadul hingga Next-Gen)
     const modelOptions = {
         gemini: [
+            // Generasi Masa Depan / Eksperimental
             { id: "gemini-3.0-pro", name: "Gemini 3 Pro" },
             { id: "gemini-3.0-flash", name: "Gemini 3 Flash" },
-            { id: "gemini-2.5-pro", name: "Gemini 2.5 Pro" }
+            { id: "gemini-2.5-pro", name: "Gemini 2.5 Pro" },
+            // Generasi Stabil Saat Ini
             { id: "gemini-1.5-pro", name: "Gemini 1.5 Pro" },
-            { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash (Free Tier)" }
+            { id: "gemini-1.5-flash", name: "Gemini 1.5 Flash (Sering Gratis)" },
+            { id: "gemini-1.0-pro", name: "Gemini 1.0 Pro" },
+            // Generasi Lama / Klasik
+            { id: "text-bison-001", name: "PaLM 2 (Text Bison - Lama)" }
         ],
         openai: [
+            // Generasi Masa Depan / Eksperimental
             { id: "gpt-5.2", name: "GPT-5.2" },
             { id: "gpt-5", name: "GPT-5" },
             { id: "gpt-5-mini", name: "GPT-5 Mini" },
-            { id: "gpt-4.1", name: "GPT-4.1" }
+            { id: "gpt-4.5-turbo", name: "GPT-4.5 Turbo" },
+            { id: "gpt-4.1", name: "GPT-4.1" },
+            // Generasi Stabil Saat Ini
+            { id: "gpt-4o", name: "GPT-4 Omni (Terbaru)" },
+            { id: "gpt-4-turbo", name: "GPT-4 Turbo" },
+            { id: "gpt-4", name: "GPT-4 Klasik" },
+            // Generasi Lama / Klasik
+            { id: "gpt-3.5-turbo", name: "GPT-3.5 Turbo" },
+            { id: "text-davinci-003", name: "GPT-3 Davinci (Lama)" }
         ],
         claude: [
-            { id: "claude-4-6-sonnet", name: "Claude Sonnet 4-6" },
-            { id: "claude-4-6-opus", name: "Claude Opus 4-6" },
-            { id: "claude-4-5-haiku", name: "Claude Haiku 4-5" }
+            // Generasi Masa Depan / Eksperimental
+            { id: "claude-4-6-sonnet", name: "Claude 4.6 Sonnet" },
+            { id: "claude-4-6-opus", name: "Claude 4.6 Opus" },
+            { id: "claude-4-5-haiku", name: "Claude 4.5 Haiku" },
+            // Generasi Stabil Saat Ini
+            { id: "claude-3-5-sonnet-20240620", name: "Claude 3.5 Sonnet" },
+            { id: "claude-3-opus-20240229", name: "Claude 3 Opus" },
+            { id: "claude-3-sonnet-20240229", name: "Claude 3 Sonnet" },
+            { id: "claude-3-haiku-20240307", name: "Claude 3 Haiku" },
+            // Generasi Lama / Klasik
+            { id: "claude-2.1", name: "Claude 2.1" },
+            { id: "claude-2.0", name: "Claude 2.0" },
+            { id: "claude-instant-1.2", name: "Claude Instant 1.2" }
         ]
     };
 
@@ -306,4 +330,5 @@
 </script>
 </body>
 </html>
+
 
